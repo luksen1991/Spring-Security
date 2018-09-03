@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="Videopoint tutorial">
+<link rel="icon" href="/ico/favicon.ico">
+<title>System zgłoszeń serwisu samochodowego</title>
+<link href="/css/bootstrap.min.css" rel="stylesheet">
+<link href="/css/dashboard.css" rel="stylesheet">
+</head>
+
+<body>
+
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<span class="navbar-brand">System zgłoszeń serwisu
+					samochodowego</span>
+			</div>
+		</div>
+	</nav>
+
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-sm-3 col-md-2 sidebar">
+				<ul class="nav nav-sidebar">
+					<li><a href="/app/index">O systemie</a></li>
+					<li class="active"><a href="/app/issues">Zgłoszenia</a></li>
+					<li><a href="/app/issue">Zgłoś problem</a></li>
+				</ul>
+			</div>
+			<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+				<H1>Zarejestrowano zgłoszenie</H1>
+				<div>
+
+
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h3 class="panel-title">Treść zgłoszenia</h3>
+						</div>
+						<div class="panel-body">
+							<div>
+								<strong>Tytuł:</strong> ${issue.title}
+							</div>
+							<div>
+								<strong>Marka:</strong> ${issue.brand}
+							</div>
+							<div>
+								<strong>Zgłaszający:</strong> ${issue.personName}
+							</div>
+							<div>
+								<strong>Opis:</strong>${issue.description}
+							</div>
+						</div>
+					</div>
+
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h3 class="panel-title">Decyzja serwisu</h3>
+						</div>
+						<div class="panel-body">
+							<form action="/app/approve" method="POST">
+								<div class="checkbox">
+									<input type="hidden" id="id" name="id" value="${issue.id}" />
+									<label> <input type="checkbox" name="approved" ${issue.approved?then('checked','')}/>Rozwiązany
+									</label>
+								</div>
+								<button type="submit" class="btn btn-default">Zapisz</button>
+							</form>
+						</div>
+					</div>
+
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Bootstrap core JavaScript
+    ================================================== -->
+	<!-- Placed at the end of the document so the pages load faster -->
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script>
+		window.jQuery
+				|| document
+						.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')
+	</script>
+	<script src="/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -19,7 +19,7 @@
         <div class="navbar-header">
           <span class="navbar-brand">System zgłoszeń CIA</span>
         </div>
-        <p class="navbar-text">Użytkownik ${user}</p>
+        <p class="navbar-text">Użytkownik ${user!'niezalogowany'}</p>
          <form class="navbar-form" method="POST" action="/logout">
          	<button type="submit" class="danger">Wyloguj</button>
          	<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>

@@ -7,7 +7,7 @@ public class CarServiceWebApplicationConfigurer extends AbstractAnnotationConfig
 	@Override
 	protected Class<?>[] getRootConfigClasses() {
 		// TODO Auto-generated method stub
-		return new Class[]{CarServiceAppConfiguration.class};
+		return new Class[]{CarServiceAppConfiguration.class,WebSecurityConfig.class};
 	}
 
 	@Override
